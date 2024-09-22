@@ -1,0 +1,45 @@
+.venv-surprise-trip/
+.env
+__pycache__/
+
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/travel-planner/node_modules
+/travel-planner/.pnp
+/travel-planner/.pnp.js
+/travel-planner/.yarn/install-state.gz
+
+# testing
+/coverage
+
+# next.js
+travel-planner/.next/
+/travel-planner/out/
+
+# production
+/travel-planner/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+/travel-planner/npm-debug.log*
+/travel-planner/yarn-debug.log*
+/travel-planner/yarn-error.log*
+
+# local env files
+/travel-planner/.env*.local
+
+# vercel
+/travel-planner/.vercel
+
+# typescript
+/travel-planner/*.tsbuildinfo
+/travel-planner/next-env.d.ts
+
+# node_modules
+# Node modules
+node_modules/
+**/node_modules/
