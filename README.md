@@ -4,8 +4,8 @@ This project is a surprise trip planner that uses AI to help create personalized
 
 ## Prerequisites
 
-- Python 3.8 or higher
-- Node.js 14 or higher
+- Python 3.10 to 3.13 (CrewAI 1.15 supports `>=3.10,<3.14`)
+- Node.js 18.17 or higher (required by Next.js 14.2)
 - npm or yarn
 
 ## Installation
@@ -42,7 +42,7 @@ This project is a surprise trip planner that uses AI to help create personalized
    ```bash
    cp .env.example .env
    ```
-   Open the `.env` file in a text editor and fill in any required values.
+   Open the `.env` file in a text editor and fill in `OPENAI_API_KEY` and `SERPER_API_KEY` ([serper.dev](https://serper.dev), used for web search). `MODEL` sets the OpenAI model the agents use; CrewAI reads it automatically.
 
 ### Frontend Setup
 
@@ -68,22 +68,11 @@ To run the full application, you'll need to start both the backend Flask server 
 
 1. Ensure you're in the root directory of the project and your virtual environment is activated.
 
-2. Set the Flask environment variables:
-   - On Windows:
-     ```bash
-     set FLASK_APP=app.py
-     set FLASK_ENV=development
-     ```
-   - On macOS and Linux:
-     ```bash
-     export FLASK_APP=app.py
-     export FLASK_ENV=development
-     ```
-
-3. Start the Flask development server:
+2. Start the Flask development server on port 3001 (the port the frontend calls):
    ```bash
-   flask run --port=3001
+   flask --app app run --port=3001 --debug
    ```
+   or simply `python app.py`, which does the same.
 
    This will start the Flask server on `http://localhost:3001`.
 
@@ -126,7 +115,7 @@ Remember to keep both the Flask and Next.js servers running while developing.
 ## Project Structure
 
 - `app.py`: Main entry point for the Flask backend application
-- `main.py`: Contains core logic for the surprise trip planner
+- `main.py`: Runs the crew once from the command line with sample inputs (`python main.py`), no frontend needed
 - `my_crew.py`: Defines the AI crew used for planning
 - `config/`: Contains configuration files for agents and tasks
 - `travel-planner/`: Next.js frontend application
